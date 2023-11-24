@@ -33,7 +33,7 @@ fu! s:idemenu_exe(_, idx) abort
     elseif a:idx == 4
         exe 'QuickRun'
     elseif a:idx == 5
-        cal vimspector#Launch()
+        cal vimspector#LaunchWithSettings({'configuration': &filetype})
     endif
     exe 'hi PmenuSel '.join(s:idemenu.pmenu_default, ' ')
     retu 0
