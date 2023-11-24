@@ -10,6 +10,9 @@ let s:idemenu = #{
     \ ],
     \ }
 
+let g:quickrun_config = {}
+let g:quickrun_config.cpp = #{command: 'g++', cmdopt: '--std=c++20'}
+
 fu! s:idemenu.open() abort
     let self.menuid = popup_menu(self.menu, #{title: self.mttl, border: [], borderchars: ['─','│','─','│','╭','╮','╯','╰'],
         \ callback: 's:idemenu_exe'})
