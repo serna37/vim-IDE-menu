@@ -46,6 +46,8 @@ This is cmd to copy `.vimspector.json` file from this repo installed by [`junegu
 :VimspectorProfileInit
 ```
 
+TODO c++ something wrong ...
+
 like (this plugin read current budder `&filetype` and call profile.)
 ```json
 {
