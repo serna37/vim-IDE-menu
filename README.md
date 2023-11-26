@@ -1,5 +1,6 @@
 # vim-IDE-menu
 vim IDE action menu on popup
+![demo](./id_menu.png)
 
 # Dependency
 |Features|Dependency|
