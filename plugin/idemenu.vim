@@ -1,7 +1,7 @@
 noremap <silent><Plug>(ide-menu) :<C-u>cal idemenu#open()<CR>
 nnoremap <Leader>v <Plug>(ide-menu)
 
-nnoremap <F3> :VimspectorWatch 
+nnoremap <F3> :cal execute('VimspectorWatch '.expand('<cword>'))<CR>
 nnoremap <F4> <Plug>VimspectorRestart
 nnoremap <F5> <Plug>VimspectorStepInto
 nnoremap <F6> <Plug>VimspectorStepOver
