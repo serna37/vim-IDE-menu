@@ -31,7 +31,8 @@ fu! s:idemenu_exe(_, idx) abort
     elseif a:idx == 3
         exe 'UltiSnipsEdit'
     elseif a:idx == 4
-        exe 'QuickRun'
+        let args = input('args >')
+        exe 'QuickRun -args '.args
     elseif a:idx == 5
         cal vimspector#LaunchWithSettings({'configuration': &filetype})
     endif
