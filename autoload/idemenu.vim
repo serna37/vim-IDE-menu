@@ -31,8 +31,10 @@ fu! s:idemenu_exe(_, idx) abort
     elseif a:idx == 3
         exe 'UltiSnipsEdit'
     elseif a:idx == 4
-        let args = input('args >')
-        exe 'QuickRun -args '.args
+        let args = input('stdin>')
+        cal system('touch .quickrun.tmp.stdin.txt && echo "'.args.'" > .quickrun.tmp.stdin.txt')
+        sil! exe 'QuickRun <.quickrun.tmp.stdin.txt'
+        cal system('rm .quickrun.tmp.stdin.txt')
     elseif a:idx == 5
         cal vimspector#LaunchWithSettings({'configuration': &filetype})
     endif
