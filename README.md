@@ -2,11 +2,19 @@
 vim IDE action menu on popup
 ![demo](./id_menu.png)
 
+Everybody set filer `<leader>f`, go-to-def `<leader>d`or`gd`, show-refs `<leader>r` ...
+
+but too many features in IDE with LSP.
+
+You have to remember a lot of keymap... it's confusing.
+
+So I made a menu including infrequent features, then aggregated a single keymap.
+
 # Dependency
 |Features|Dependency|
 |:----|:-------|
 |Format|[coc.nvim](https://github.com/neoclide/coc.nvim)|
-|Rename|[coc.nvim](https://github.com/neoclide/coc.nvim)|
+|ReName|[coc.nvim](https://github.com/neoclide/coc.nvim)|
 |Snippet|[UltiSnips](https://github.com/SirVer/ultisnips)|
 |Run|[vim-quickrun](https://github.com/thinca/vim-quickrun)|
 |Debug|[vimspector](https://github.com/puremourning/vimspector)|
@@ -14,7 +22,7 @@ vim IDE action menu on popup
 # Usage
 `<Leader>v` to open menu in popup window.
 
-and keymap vimspector features like `eclipse`.
+and keymap vimspector features just like `eclipse`.
 ```vim
 nnoremap <F3> :cal execute('VimspectorWatch '.expand('<cword>'))<CR>
 nnoremap <F4> <Plug>VimspectorRestart
@@ -26,15 +34,14 @@ nnoremap <F9> <Plug>VimspectorToggleBreakpoint
 nnoremap <F10> :VimspectorReset<CR>
 ```
 
-preset install
+to preset install debugger
 ```vim
 :VimspectorInstall debugpy delve CodeLLDB
 ```
 
-you have to prepare `.vimspector.json` on project file.
+And, you have to prepare `.vimspector.json` on project file.
 
-
-copy `.vimspector.json` file from this repo installed by [`junegunn/vim-plug`](https://github.com/junegunn/vim-plug).
+This is cmd to copy `.vimspector.json` file from this repo installed by [`junegunn/vim-plug`](https://github.com/junegunn/vim-plug).
 ```vim
 :VimspectorProfileInit
 ```
