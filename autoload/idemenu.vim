@@ -1,6 +1,6 @@
 let s:idemenu = #{
     \ pmenu_default: [],
-    \ menuid: 0, mttl: ' IDE MENU (j / k) Enter choose ',
+    \ menuid: 0, mttl: ' IDE MENU  ',
     \ menu: [
         \ '[⚖️  Format]   format CocActionAsync',
         \ '[♻️  ReName]   rename CocActionAsync',
