@@ -2,62 +2,77 @@
     "adapters": {},
     "configurations": {
         "cpp": {
-            "adapter": "CodeLLDB",
+            "adapter": "vscode-cpptools",
+            "filetypes": [
+                "cpp"
+            ],
+            "default": true,
             "configuration": {
                 "name": "C++: Current File",
                 "type": "cpp",
                 "request": "launch",
                 "cwd": "${cwd}",
-                "program": "${file}",
-                "args": ["*${CommandLineArgs}"],
+                "program": "a.out",
+                "args": [
+                    "*${CommandLineArgs}"
+                ],
                 "stopOnEntry": true,
-                "externalConsole": true,
-                "debugOptions": [],
+                "externalConsole": false,
+                "console": "integratedTerminal",
                 "MIMode": "lldb"
             },
             "breakpoints": {
                 "exception": {
                     "raised": "N",
+                    "caught": "",
                     "uncaught": "Y"
                 }
             }
         },
         "python": {
             "adapter": "debugpy",
+            "filetypes": [
+                "python"
+            ],
+            "default": true,
             "configuration": {
                 "name": "Python: Current File",
                 "type": "python",
                 "request": "launch",
                 "cwd": "${cwd}",
                 "program": "${file}",
-                "args": [],
                 "stopOnEntry": true,
                 "externalConsole": false,
-                "debugOptions": []
+                "console": "integratedTerminal"
             },
             "breakpoints": {
                 "exception": {
                     "raised": "N",
+                    "caught": "",
                     "uncaught": "Y"
                 }
             }
         },
         "go": {
             "adapter": "delve",
+            "filetypes": [
+                "go"
+            ],
+            "default": true,
             "configuration": {
                 "name": "Go: Current File",
                 "type": "go",
                 "request": "launch",
                 "cwd": "${cwd}",
                 "program": "${file}",
-                "args": [],
                 "stopOnEntry": true,
                 "externalConsole": false,
-                "debugOptions": []
+                "console": "integratedTerminal"
             },
             "breakpoints": {
                 "exception": {
                     "raised": "N",
+                    "caught": "",
                     "uncaught": "Y"
                 }
             }
