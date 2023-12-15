@@ -66,15 +66,15 @@ like (this plugin read current budder `&filetype` and call profile.)
         }
     },
     "configurations": {
-        "cpptools (lldb)": {
-            "adapter": "vscode-cpptools",
+        "cpp": {
+            "adapter": "CodeLLDB",
             "filetypes": [
                 "cpp"
             ],
             "default": true,
             "variables": {
                 "BUILDME": {
-                    "shell": "g++ -o ${workspaceRoot}/test -g -std=c++20 ${workspaceRoot}/main.cpp"
+                    "shell": "g++ -g -std=c++20 main.cpp -o ${workspaceRoot}/test"
                 },
                 "arch": {
                     "shell": "uname -m"
