@@ -74,7 +74,7 @@ like (this plugin read current budder `&filetype` and call profile.)
             "default": true,
             "variables": {
                 "BUILDME": {
-                    "shell": "g++ -g -std=c++20 main.cpp -o ${workspaceRoot}/test"
+                    "shell": "g++ -g -std=c++20 ${script:${file\\}} -o ${workspaceRoot}/test"
                 },
                 "arch": {
                     "shell": "uname -m"
