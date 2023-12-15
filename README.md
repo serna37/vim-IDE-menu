@@ -53,65 +53,104 @@ TODO c++ something wrong ...
 like (this plugin read current budder `&filetype` and call profile.)
 ```json
 {
-    "adapters": {},
+    "adapters": {
+        "custom-codelldb": {
+            "extends": "CodeLLDB",
+            "command": [
+                "$HOME/.vim/plugged/vimspector/gadgets/macos/CodeLLDB/adapte/codelldb",
+                "--port",
+                "${unusedLocalPort}"
+            ]
+        },
+        "CodeLLDB - StopOnEntry": {
+            "extends": "custom-codelldb",
+            "name": "CoHostingLLDB"
+        }
+    },
     "configurations": {
-        "cpp": {
-            "adapter": "CodeLLDB",
+        "cpptools (lldb)": {
+            "adapter": "vscode-cpptools",
+            "filetypes": [
+                "cpp"
+            ],
+            "default": true,
+            "variables": {
+                "BUILDME": {
+                    "shell": "g++ -o ${workspaceRoot}/test -g -std=c++20 ${workspaceRoot}/main.cpp"
+                },
+                "arch": {
+                    "shell": "uname -m"
+                }
+            },
             "configuration": {
                 "name": "C++: Current File",
                 "type": "cpp",
                 "request": "launch",
-                "cwd": "${cwd}",
-                "program": "${file}",
-                "args": ["*${CommandLineArgs}"],
-                "stopOnEntry": true,
+                "program": "${workspaceRoot}/test",
+                "stopAtEntry": true,
                 "externalConsole": true,
-                "debugOptions": [],
-                "MIMode": "lldb"
+                "console": "integratedTerminal",
+                "MIMode": "lldb",
+                "MIDebuggerPath": "$HOME/.vim/plugged/vimspector/gadgets/macos/vscode-cpptools/debugAdapters/lldb-mi/bin/lldb-mi",
+                "logging": {
+                    "engineLogging": true
+                },
+                "targetArchitecture": "${arch}"
             },
             "breakpoints": {
                 "exception": {
-                    "raised": "N",
-                    "uncaught": "Y"
+                    "raised": "Y",
+                    "caught": "Y",
+                    "uncaught": "Y",
+                    "cpp_throw": "Y",
+                    "cpp_catch": "Y"
                 }
             }
         },
         "python": {
             "adapter": "debugpy",
+            "filetypes": [
+                "python"
+            ],
+            "default": true,
             "configuration": {
                 "name": "Python: Current File",
                 "type": "python",
                 "request": "launch",
                 "cwd": "${cwd}",
                 "program": "${file}",
-                "args": [],
                 "stopOnEntry": true,
                 "externalConsole": false,
-                "debugOptions": []
+                "console": "integratedTerminal"
             },
             "breakpoints": {
                 "exception": {
-                    "raised": "N",
+                    "raised": "Y",
+                    "caught": "Y",
                     "uncaught": "Y"
                 }
             }
         },
         "go": {
             "adapter": "delve",
+            "filetypes": [
+                "go"
+            ],
+            "default": true,
             "configuration": {
                 "name": "Go: Current File",
                 "type": "go",
                 "request": "launch",
                 "cwd": "${cwd}",
                 "program": "${file}",
-                "args": [],
                 "stopOnEntry": true,
                 "externalConsole": false,
-                "debugOptions": []
+                "console": "integratedTerminal"
             },
             "breakpoints": {
                 "exception": {
-                    "raised": "N",
+                    "raised": "Y",
+                    "caught": "Y",
                     "uncaught": "Y"
                 }
             }
