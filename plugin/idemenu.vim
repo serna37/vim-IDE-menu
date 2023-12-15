@@ -10,4 +10,4 @@ nnoremap <F8> <Plug>VimspectorContinue
 nnoremap <F9> <Plug>VimspectorToggleBreakpoint
 nnoremap <F10> :VimspectorReset<CR>
 
-com! VimspectorProfileInit cal system('cp ~/.vim/plugged/vim-IDE-menu/.vimspector.json .')
+com! DebugProfileInit cal system('cp -f ~/.vim/plugged/vim-IDE-menu/.vimspector.json .vimspector.json')

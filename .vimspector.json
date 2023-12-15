@@ -1,31 +1,55 @@
 {
-    "adapters": {},
+    "adapters": {
+        "custom-codelldb": {
+            "extends": "CodeLLDB",
+            "command": [
+                "$HOME/.vim/plugged/vimspector/gadgets/macos/CodeLLDB/adapte/codelldb",
+                "--port",
+                "${unusedLocalPort}"
+            ]
+        },
+        "CodeLLDB - StopOnEntry": {
+            "extends": "custom-codelldb",
+            "name": "CoHostingLLDB"
+        }
+    },
     "configurations": {
-        "cpp": {
+        "cpptools (lldb)": {
             "adapter": "vscode-cpptools",
             "filetypes": [
                 "cpp"
             ],
             "default": true,
+            "variables": {
+                "BUILDME": {
+                    "shell": "g++ -o ${workspaceRoot}/test -g -std=c++20 ${workspaceRoot}/main.cpp"
+                },
+                "arch": {
+                    "shell": "uname -m"
+                }
+            },
             "configuration": {
                 "name": "C++: Current File",
                 "type": "cpp",
                 "request": "launch",
-                "cwd": "${cwd}",
-                "program": "a.out",
-                "args": [
-                    "*${CommandLineArgs}"
-                ],
-                "stopOnEntry": true,
-                "externalConsole": false,
+                "program": "${workspaceRoot}/test",
+                "stopAtEntry": true,
+                "externalConsole": true,
                 "console": "integratedTerminal",
-                "MIMode": "lldb"
+                "MIMode": "lldb",
+                "MIDebuggerPath": "$HOME/.vim/plugged/vimspector/gadgets/macos/vscode-cpptools/debugAdapters/lldb-mi/bin/lldb-mi",
+                "logging": {
+                    "engineLogging": true
+                },
+                "targetArchitecture": "${arch}"
             },
             "breakpoints": {
                 "exception": {
-                    "raised": "N",
-                    "caught": "",
-                    "uncaught": "Y"
+                    "raised": "Y",
+                    "caught": "Y",
+                    "uncaught": "Y",
+                    "cpp_throw": "Y",
+                    "cpp_catch": "Y"
                 }
             }
         },
@@ -47,8 +71,8 @@
             },
             "breakpoints": {
                 "exception": {
-                    "raised": "N",
-                    "caught": "",
+                    "raised": "Y",
+                    "caught": "Y",
                     "uncaught": "Y"
                 }
             }
@@ -71,8 +95,8 @@
             },
             "breakpoints": {
                 "exception": {
-                    "raised": "N",
-                    "caught": "",
+                    "raised": "Y",
+                    "caught": "Y",
                     "uncaught": "Y"
                 }
             }
