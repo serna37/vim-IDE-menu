@@ -22,7 +22,7 @@
             "default": true,
             "variables": {
                 "BUILDME": {
-                    "shell": "g++ -o ${workspaceRoot}/test -g -std=c++20 ${workspaceRoot}/main.cpp"
+                    "shell": "g++- std=c++20 main.cpp -o ${workspaceRoot}/test"
                 },
                 "arch": {
                     "shell": "uname -m"
