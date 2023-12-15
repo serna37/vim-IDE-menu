@@ -2,13 +2,14 @@ let s:idemenu = #{
     \ pmenu_default: [],
     \ menuid: 0, mttl: ' IDE MENU  ',
     \ menu: [
-        \ '[⚖️  Format]   format CocActionAsync',
-        \ '[♻️  ReName]   rename CocActionAsync',
-        \ '[🎨 Snippet]  ultisnips edit',
-        \ '[🌏 Vista]    outline toggle',
-        \ '[🗺️ MiniMap]  minimap toggle',
-        \ '[⚡️ Run]      quickrun',
-        \ '[⚙️  Debug]    vimspector',
+        \ '[⚖️  Format]    format CocActionAsync',
+        \ '[♻️  ReName]    rename CocActionAsync',
+        \ '[🎨 Snippet]   ultisnips edit',
+        \ '[🌏 Vista]     outline toggle',
+        \ '[🗺️ MiniMap]   minimap toggle',
+        \ '[⚡️ Run]       quickrun',
+        \ '[⚡️ Run StdIn] quickrun',
+        \ '[⚙️  Debug]     vimspector',
     \ ],
     \ }
 
@@ -37,11 +38,13 @@ fu! s:idemenu_exe(_, idx) abort
     elseif a:idx == 5
         exe 'MinimapToggle'
     elseif a:idx == 6
+        sil! exe 'QuickRun'
+    elseif a:idx == 7
         let args = input('stdin>')
         cal system('touch .quickrun.tmp.stdin.txt && echo "'.args.'" > .quickrun.tmp.stdin.txt')
         sil! exe 'QuickRun <.quickrun.tmp.stdin.txt'
         cal system('rm .quickrun.tmp.stdin.txt')
-    elseif a:idx == 7
+    elseif a:idx == 8
         cal vimspector#Launch()
     endif
     exe 'hi PmenuSel '.join(s:idemenu.pmenu_default, ' ')
