@@ -45,6 +45,7 @@ fu! s:idemenu_exe(_, idx) abort
         sil! exe 'QuickRun <.quickrun.tmp.stdin.txt'
         cal system('rm .quickrun.tmp.stdin.txt')
     elseif a:idx == 8
+        cal system('cp -f ~/.vim/plugged/vim-IDE-menu/.vimspector.json .vimspector.json')
         cal vimspector#Launch()
     endif
     exe 'hi PmenuSel '.join(s:idemenu.pmenu_default, ' ')
