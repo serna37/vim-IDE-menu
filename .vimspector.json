@@ -1,18 +1,5 @@
 {
-    "adapters": {
-        "custom-codelldb": {
-            "extends": "CodeLLDB",
-            "command": [
-                "$HOME/.vim/plugged/vimspector/gadgets/macos/CodeLLDB/adapte/codelldb",
-                "--port",
-                "${unusedLocalPort}"
-            ]
-        },
-        "CodeLLDB - StopOnEntry": {
-            "extends": "custom-codelldb",
-            "name": "CoHostingLLDB"
-        }
-    },
+    "adapters": {},
     "configurations": {
         "cpptools (lldb)": {
             "adapter": "vscode-cpptools",
@@ -22,7 +9,7 @@
             "default": true,
             "variables": {
                 "BUILDME": {
-                    "shell": "g++- std=c++20 main.cpp -o ${workspaceRoot}/test"
+                    "shell": "g++ -std=c++20 main.cpp -o ${workspaceRoot}/test"
                 },
                 "arch": {
                     "shell": "uname -m"
