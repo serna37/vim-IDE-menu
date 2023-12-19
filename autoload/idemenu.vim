@@ -38,11 +38,11 @@ fu! s:idemenu_exe(_, idx) abort
     elseif a:idx == 5
         exe 'MinimapToggle'
     elseif a:idx == 6
-        sil! exe 'QuickRun'
+        sil! exe 'QuickRun -hook/time/enable 1'
     elseif a:idx == 7
         let args = input('stdin>')
         cal system('touch .quickrun.tmp.stdin.txt && echo "'.args.'" > .quickrun.tmp.stdin.txt')
-        sil! exe 'QuickRun <.quickrun.tmp.stdin.txt'
+        sil! exe 'QuickRun -hook/time/enable 1 <.quickrun.tmp.stdin.txt'
         cal system('rm .quickrun.tmp.stdin.txt')
     elseif a:idx == 8
         cal system('cp -f ~/.vim/plugged/vim-IDE-menu/.vimspector.json .vimspector.json')
