@@ -29,6 +29,7 @@ endf
 fu! s:idemenu_exe(_, idx) abort
     if a:idx == 1
         cal CocActionAsync('format')
+        sil! exe 'w'
     elseif a:idx == 2
         cal CocActionAsync('rename')
     elseif a:idx == 3
