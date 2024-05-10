@@ -15,7 +15,7 @@ So I made a menu including infrequent features, then aggregated a single keymap.
 |:----|:-------|
 |Format|[coc.nvim](https://github.com/neoclide/coc.nvim)|
 |ReName|[coc.nvim](https://github.com/neoclide/coc.nvim)|
-|Snippet|[UltiSnips](https://github.com/SirVer/ultisnips)|
+|Snippet|~~[UltiSnips](https://github.com/SirVer/ultisnips)~~ [coc-snippets](https://github.com/neoclide/coc-snippets)|
 |Vista|[vista.vim](https://github.com/liuchengxu/vista.vim)|
 |MiniMap|[minimap.vim](https://github.com/wfxr/minimap.vim)|
 |Run|[vim-quickrun](https://github.com/thinca/vim-quickrun)|

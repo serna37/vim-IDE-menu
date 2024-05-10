@@ -32,7 +32,8 @@ fu! s:idemenu_exe(_, idx) abort
     elseif a:idx == 2
         cal CocActionAsync('rename')
     elseif a:idx == 3
-        exe 'UltiSnipsEdit'
+        "exe 'UltiSnipsEdit'
+        exe 'CocCommand snippets.editSnippets'
     elseif a:idx == 4
         exe 'Vista!!'
     elseif a:idx == 5
