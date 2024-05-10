@@ -9,6 +9,7 @@ let s:idemenu = #{
         \ '[🗺️ MiniMap]   minimap toggle',
         \ '[⚡️ Run]       quickrun',
         \ '[⚡️ Run StdIn] quickrun',
+        \ '[⚙️  Debug Set] prepare vimspector',
         \ '[⚙️  Debug]     vimspector',
     \ ],
     \ }
@@ -47,6 +48,7 @@ fu! s:idemenu_exe(_, idx) abort
         cal system('rm .quickrun.tmp.stdin.txt')
     elseif a:idx == 8
         cal system('cp -f ~/.vim/plugged/vim-IDE-menu/.vimspector.json .vimspector.json')
+    elseif a:idx == 9
         cal vimspector#Launch()
     endif
     exe 'hi PmenuSel '.join(s:idemenu.pmenu_default, ' ')

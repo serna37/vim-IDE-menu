@@ -19,6 +19,7 @@ So I made a menu including infrequent features, then aggregated a single keymap.
 |Vista|[vista.vim](https://github.com/liuchengxu/vista.vim)|
 |MiniMap|[minimap.vim](https://github.com/wfxr/minimap.vim)|
 |Run|[vim-quickrun](https://github.com/thinca/vim-quickrun)|
+|Debug Set|no Dependency|
 |Debug|[vimspector](https://github.com/puremourning/vimspector)|
 
 # Usage
@@ -36,18 +37,12 @@ nnoremap <F9> <Plug>VimspectorToggleBreakpoint
 nnoremap <F10> :VimspectorReset<CR>
 ```
 
-to preset install debugger
+(unnecessary) to preset install debugger
 ```vim
 :VimspectorInstall debugpy delve CodeLLDB
 ```
 
-And, you have to prepare `.vimspector.json` on project file.
-
-This is cmd to copy `.vimspector.json` file from this repo installed by [`junegunn/vim-plug`](https://github.com/junegunn/vim-plug).
-```vim
-:VimspectorProfileInit
-```
-
+`Debug Set`feature will copy profiles for project dir, or you have to prepare `.vimspector.json` on project file.
 like (this plugin read current budder `&filetype` and call profile.)
 ```json
 {
