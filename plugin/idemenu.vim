@@ -7,9 +7,11 @@ nnoremap <S-F9> :<C-u>cal vimspector#ClearBreakpoints()<CR>
 
 " debug start / jump to next breakpoint
 nnoremap <F5> <Plug>VimspectorContinue
-
 " exit debug mode
 nnoremap <S-F5> :VimspectorReset<CR>
+
+" restart debug mode
+nnoremap <F4> <Plug>VimspectorRestart
 
 " step over
 nnoremap <F10> <Plug>VimspectorStepOver
