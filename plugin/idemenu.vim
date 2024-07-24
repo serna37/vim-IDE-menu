@@ -1,4 +1,3 @@
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 noremap <silent><Plug>(ide-menu) :<C-u>cal idemenu#open()<CR>
 nnoremap <Leader>v <Plug>(ide-menu)
 

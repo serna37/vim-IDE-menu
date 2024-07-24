@@ -25,16 +25,21 @@ So I made a menu including infrequent features, then aggregated a single keymap.
 # Usage
 `<Leader>v` to open menu in popup window.
 
-and keymap vimspector features just like `eclipse`.
+and keymap vimspector features just like `VSCode`.
 ```vim
-nnoremap <F3> :cal execute('VimspectorWatch '.expand('<cword>'))<CR>
-nnoremap <F4> <Plug>VimspectorRestart
-nnoremap <F5> <Plug>VimspectorStepInto
-nnoremap <F6> <Plug>VimspectorStepOver
-nnoremap <F7> <Plug>VimspectorStepOut
-nnoremap <F8> <Plug>VimspectorContinue
 nnoremap <F9> <Plug>VimspectorToggleBreakpoint
-nnoremap <F10> :VimspectorReset<CR>
+nnoremap <F5> <Plug>VimspectorContinue
+nnoremap <S-F5> :VimspectorReset<CR>
+nnoremap <F10> <Plug>VimspectorStepOver
+nnoremap <F11> <Plug>VimspectorStepInto
+nnoremap <S-F11> <Plug>VimspectorStepOut
+
+nnoremap <F3> :cal execute('VimspectorWatch '.expand('<cword>'))<CR>
+nnoremap <Leader>_ <Plug>VimspectorBalloonEval
+```
+if you want to add other maps, write this on your vimrc.
+```vim
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 ```
 
 (unnecessary) to preset install debugger
